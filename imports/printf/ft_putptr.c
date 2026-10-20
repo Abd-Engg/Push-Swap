@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../../header_files/ft_printf.h"
+
 int	ft_putptr(unsigned long n)
 {
 	if (!n)
