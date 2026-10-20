@@ -33,5 +33,7 @@ t_node		*new_node(t_stack *s, int content);
 t_stack		*init_stack();
 void		push(t_stack *s1, t_stack *s2);
 void		swap(t_stack **s1);
+void		rot(t_stack **s1);
+void		revrot(t_stack **s1);
 
 #endif

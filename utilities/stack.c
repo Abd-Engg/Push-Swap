@@ -26,8 +26,11 @@ t_node	*new_node(t_stack *s, int content)
 		s->tail = node;
 		node->prev = NULL;
 	}
-	else 
+	else
+	{
+		s->head->next = node;
 		node->prev = s->head;
+	}
 	s->head = node;
 	(s->size)++;
 	return (node);

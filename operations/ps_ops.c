@@ -18,6 +18,8 @@ void	swap(t_stack **s1) //sa -> swap(**stackA)
 
 	head = (*s1)->head;
 	prev = head->prev;
+	if (!prev)
+		return ;
 	pprev = prev->prev;
 	if (pprev)
 		pprev->next = (*s1)->head;
@@ -28,4 +30,42 @@ void	swap(t_stack **s1) //sa -> swap(**stackA)
 	head->next = prev;
 	prev->next = NULL;
 	(*s1)->head = prev;
+}
+
+void	rot(t_stack **s1)
+{
+	t_node	*head;
+	t_node	*tail;
+	t_node	*prev;
+
+	head = (*s1)->head;
+	tail = (*s1)->tail;
+	prev = head->prev;
+	if (!prev)
+		return ;
+	head->next = tail;
+	head->prev = NULL;
+	prev->next = NULL;
+	tail->prev = head;
+	(*s1)->tail = head;
+	(*s1)->head = prev;
+}
+
+void	revrot(t_stack **s1)
+{
+	t_node	*head;
+	t_node	*tail;
+	t_node	*next;
+
+	head = (*s1)->head;
+	tail = (*s1)->tail;
+	next = tail->next;
+	if (!next)
+		return ;
+	head->next = tail;
+	next->prev = NULL;
+	tail->next = NULL;
+	tail->prev = head;
+	(*s1)->head = tail;
+	(*s1)->tail = next;
 }
