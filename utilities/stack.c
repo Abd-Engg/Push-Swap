@@ -21,9 +21,13 @@ t_node	*new_node(t_stack *s, int content)
 	t_node *node = malloc(sizeof(t_node));
 	node->content = content;
 	node->next = NULL;
-	node->prev = s->head;
-	node->index = (int)s->size;
-	s->head->next = node;
+	if (!(s->tail))
+	{
+		s->tail = node;
+		node->prev = NULL;
+	}
+	else 
+		node->prev = s->head;
 	s->head = node;
 	(s->size)++;
 	return (node);
