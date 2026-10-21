@@ -1,9 +1,11 @@
 #include "../header_files/pushswap.h"
 #include "../header_files/libft.h"
 
-t_stack	*init_stack()
+t_stack	*init_stack(void)
 {
-	t_stack *stack = malloc(sizeof(t_stack));
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
 	stack->head = NULL;
 	stack->tail = NULL;
 	stack->op.p = 0;
@@ -18,7 +20,9 @@ t_stack	*init_stack()
 
 t_node	*new_node(int content)
 {
-	t_node *node = malloc(sizeof(t_node));
+	t_node	*node;
+
+	node = malloc(sizeof(t_node));
 	node->content = content;
 	node->next = NULL;
 	node->prev = NULL;
@@ -27,7 +31,9 @@ t_node	*new_node(int content)
 
 t_node	*add_new_node(t_stack *s, int content)
 {
-	t_node *node = new_node(content);
+	t_node	*node;
+
+	node = new_node(content);
 	if (!(s->tail))
 	{
 		s->tail = node;
@@ -43,19 +49,21 @@ t_node	*add_new_node(t_stack *s, int content)
 	return (node);
 }
 
-void del_node(t_stack *s)
+void	del_node(t_stack *s)
 {
+	t_node	*tmp;
+
 	if (!s->head)
 		return ;
 	if (s->tail == s->head)
 	{
 		free(s->head);
-		s->head =NULL;
+		s->head = NULL;
 		s->tail = NULL;
 		s->size -= 1;
 		return ;
-	}	
-	t_node *tmp = s->head;
+	}
+	tmp = s->head;
 	s->head = s->head->prev;
 	s->head->next = NULL;
 	s->size -= 1;

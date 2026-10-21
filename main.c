@@ -29,25 +29,25 @@ int	main(void)
 
 	print_stack("before ", a);
 
-	swap(a);
+	sa(a, 1);
 	print_stack("sa     ", a);
 	
 
-	push(b, a);
+	pb(b, a, 1);
 	print_stack("pb (a) ", a);
 	print_stack("pb (b) ", b);
 	
 	
-	push(a, b);
+	pa(a, b, 1);
 	print_stack("pa (a) ", a);
 	print_stack("pa (b) ", b);
 
 
-	rot(&a);
+	ra(a, 1);
 	print_stack("ra     ", a);
 	
 	
-	revrot(&a);
+	rra(a, 1);
 	print_stack("rra    ", a);
 
 	return (0);

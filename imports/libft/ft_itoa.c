@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../header_files/libft.h"
 
 static int	count(int n)
 {
