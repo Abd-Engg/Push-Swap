@@ -2,7 +2,7 @@
 # define PUSHSWAP_H
 
 # include <stddef.h>
-
+# include <stdlib.h>
 typedef struct		s_node
 {
 	int				content;
@@ -29,10 +29,11 @@ typedef struct 		s_stack
 	size_t			size;
 }					t_stack;
 
-t_node		*new_node(t_stack *s, int content);
+void del_node(t_stack *s);
+t_node		*add_new_node(t_stack *s, int content);
 t_stack		*init_stack();
 void		push(t_stack *s1, t_stack *s2);
-void		swap(t_stack **s1);
+void		swap(t_stack *s1);
 void		rot(t_stack **s1);
 void		revrot(t_stack **s1);
 

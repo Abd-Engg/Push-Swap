@@ -1,28 +1,54 @@
 #include "header_files/pushswap.h"
 #include <stdio.h>
 
-int main()
+static void	print_stack(char *twasel_ma3e, t_stack *s)
 {
-	t_stack *stackA = init_stack();
-	t_node *node1 = new_node(stackA, 1);
-	t_node *node2 = new_node(stackA, 2);
-	t_node *node3 = new_node(stackA, 3);
-	t_node *node4 = new_node(stackA, 4);
+	t_node	*cur;
 
-	t_node	*curr = stackA->tail;
-	printf("before: ");
-	while (curr)
+	printf("%s: ", twasel_ma3e);
+	cur = s->tail;
+	while (cur)
 	{
-		printf("%d ", curr->content);
-		curr = curr->next;
+		printf("%d ", cur->content);
+		cur = cur->next;
 	}
 	printf("\n");
-	revrot(&stackA);
-	printf("after: ");
-	curr = stackA->tail;
-	while (curr)
-	{
-		printf("%d ", curr->content);
-		curr = curr->next;
-	}
+}
+
+int	main(void)
+{
+	t_stack	*a;
+	t_stack	*b;
+
+	a = init_stack();
+	b = init_stack();
+	add_new_node(a, 1);
+	add_new_node(a, 2);
+	add_new_node(a, 3);
+	add_new_node(a, 4);
+
+	print_stack("before ", a);
+
+	swap(a);
+	print_stack("sa     ", a);
+	
+
+	push(b, a);
+	print_stack("pb (a) ", a);
+	print_stack("pb (b) ", b);
+	
+	
+	push(a, b);
+	print_stack("pa (a) ", a);
+	print_stack("pa (b) ", b);
+
+
+	rot(&a);
+	print_stack("ra     ", a);
+	
+	
+	revrot(&a);
+	print_stack("rra    ", a);
+
+	return (0);
 }

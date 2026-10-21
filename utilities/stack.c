@@ -16,11 +16,18 @@ t_stack	*init_stack()
 	return (stack);
 }
 
-t_node	*new_node(t_stack *s, int content)
+t_node	*new_node(int content)
 {
 	t_node *node = malloc(sizeof(t_node));
 	node->content = content;
 	node->next = NULL;
+	node->prev = NULL;
+	return (node);
+}
+
+t_node	*add_new_node(t_stack *s, int content)
+{
+	t_node *node = new_node(content);
 	if (!(s->tail))
 	{
 		s->tail = node;
@@ -34,4 +41,23 @@ t_node	*new_node(t_stack *s, int content)
 	s->head = node;
 	(s->size)++;
 	return (node);
+}
+
+void del_node(t_stack *s)
+{
+	if (!s->head)
+		return ;
+	if (s->tail == s->head)
+	{
+		free(s->head);
+		s->head =NULL;
+		s->tail = NULL;
+		s->size -= 1;
+		return ;
+	}	
+	t_node *tmp = s->head;
+	s->head = s->head->prev;
+	s->head->next = NULL;
+	s->size -= 1;
+	free(tmp);
 }
