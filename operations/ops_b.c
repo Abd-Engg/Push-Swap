@@ -14,6 +14,7 @@ void	pb(t_stack *sb, t_stack *sa, int bench)
 	if (!bench)
 		ft_printf("pb\n");
 	push(sb, sa);
+	sb->op.p += 1;
 }
 
 void	rb(t_stack *sb, int bench)

@@ -14,6 +14,7 @@ void	pa(t_stack *sa, t_stack *sb, int bench)
 	if (!bench)
 		ft_printf("pa\n");
 	push(sa, sb);
+	sa->op.p += 1;
 }
 
 void	ra(t_stack *sa, int bench)

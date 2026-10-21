@@ -6,7 +6,6 @@ void	push(t_stack *s1, t_stack *s2) //pa -> push(stackA, stackB);
 		return ;
 	add_new_node(s1, s2->head->content);
 	del_node(s2);
-	s1->op.p += 1;
 }
 
 void	swap(t_stack *s1) //sa -> swap(**stackA)
