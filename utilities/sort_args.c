@@ -1,4 +1,35 @@
+#include <stdio.h>
 #include <stdlib.h>
+#include "../header_files/pushswap.h"
+
+void	binary_search(t_stack *s, int *arr)
+{
+	t_node	*node;
+	int		l;
+	int		r;
+	int		mid;
+
+	node = s->tail;
+	while (node)
+	{
+		l = 0;
+		r = s->size - 1;
+		while (l <= r)
+		{
+			mid = (r + l) / 2;
+			if (arr[mid] == node->content)
+			{
+				node->content = mid;
+				break ;
+			}
+			else if (arr[mid] < node->content)
+				l = mid + 1;
+			else
+				r = mid - 1;
+		}
+		node = node->next;
+	}
+}
 
 int	*fill_arr(int arr[], int size, int idx)
 {
@@ -40,7 +71,7 @@ void	sort(int arr[], int l, int mid, int r)
 	free(right);
 }
 
-void	merge_sort(int arr[], int l, int r)
+void	merge_sort(int *arr, int l, int r)
 {
 	int	mid;
 
