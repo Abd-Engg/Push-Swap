@@ -22,11 +22,11 @@ int	main(void)
 
 	a = init_stack();
 	b = init_stack();
-	add_new_node(a, 1);
-	add_new_node(a, 2);
+	add_new_node(a, 44);
 	add_new_node(a, 3);
-	add_new_node(a, 4);
-
+	add_new_node(a, 20);
+	add_new_node(a, 1);
+/*
 	print_stack("before ", a);
 
 	sa(a, 1);
@@ -49,6 +49,13 @@ int	main(void)
 	
 	rra(a, 1);
 	print_stack("rra    ", a);
-
+*/
+	print_stack("a before ", a);
+	int arr[] = {44, 3, 20, 1}; // consider this the parsed array
+	merge_sort(arr, 0, 3);
+	binary_search(a, arr);
+	for (int i = 0; i < 4; i++)
+		printf("%d ", arr[i]);
+	print_stack("\na after ", a);
 	return (0);
 }
