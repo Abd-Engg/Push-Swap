@@ -57,5 +57,8 @@ int	main(void)
 	for (int i = 0; i < 4; i++)
 		printf("%d ", arr[i]);
 	print_stack("\na after ", a);
+
+	complex(a, b, 1);
+	print_stack("\nafter complex sort: ", a);
 	return (0);
 }
