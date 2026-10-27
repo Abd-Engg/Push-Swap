@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "../header_files/pushswap.h"
 
@@ -31,7 +30,7 @@ void	binary_search(t_stack *s, int *arr)
 	}
 }
 
-int	*fill_arr(int arr[], int size, int idx)
+int	*fill_arr(int *arr, int size, int idx)
 {
 	int	i;
 	int	*tmp;
@@ -43,7 +42,7 @@ int	*fill_arr(int arr[], int size, int idx)
 	return (tmp);
 }
 
-void	sort(int arr[], int l, int mid, int r)
+void	sort(int *arr, int l, int mid, int r)
 {
 	int	i;
 	int	j;
