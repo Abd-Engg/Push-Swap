@@ -1,4 +1,3 @@
-
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
@@ -49,9 +48,11 @@ void		rrb(t_stack *sb, int bench);
 void		ss(t_stack *sa, t_stack *sb, int bench);
 void		rr(t_stack *sa, t_stack *sb, int bench);
 void		rrr(t_stack *sa, t_stack *sb, int bench);
-void		sort(int arr[], int l, int mid, int r);
-int			*fill_arr(int arr[], int size, int idx);
+void		sort(int *arr, int l, int mid, int r);
+int			*fill_arr(int *arr, int size, int idx);
 void		binary_search(t_stack *s, int *arr);
 void		merge_sort(int *arr, int l, int r);
+void		complex(t_stack *stack_a, t_stack *stack_b, int bench);
+int			count(int n);
 
 #endif
