@@ -1,0 +1,16 @@
+#include "../../header_files/ft_printf.h"
+
+int	ft_putfloat(float nb)
+{
+	int	count;
+	int	i;
+
+	nb *= 100;
+	count = ft_putnbr(nb);
+	i = 0;
+	nb *= 100;
+	count += ft_putchar('.');
+	count += ft_putnbr(((int)nb % 100) / 10);
+	count += ft_putnbr(((int)nb % 100) % 10);
+	return (count);
+}

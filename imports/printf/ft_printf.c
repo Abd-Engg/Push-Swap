@@ -28,6 +28,8 @@ static int	handler(char format, va_list args)
 		return (ft_putptr((unsigned long)va_arg(args, void *)));
 	else if (format == 'u')
 		return (ft_putunsigned(va_arg(args, unsigned int)));
+	else if (format == 'f')
+		return (ft_putfloat((float)va_arg(args, double)));
 	return (-1);
 }
 

@@ -1,4 +1,5 @@
 #include "header_files/pushswap.h"
+#include "header_files/ft_printf.h"
 #include <stdio.h>
 
 static void	print_stack(char *twasel_ma3e, t_stack *s)
@@ -22,10 +23,10 @@ int	main(void)
 
 	a = init_stack();
 	b = init_stack();
-	add_new_node(a, 44);
-	add_new_node(a, 3);
-	add_new_node(a, 2);
+	add_new_node(a, 4);
 	add_new_node(a, 1);
+	add_new_node(a, 0);
+	add_new_node(a, -1);
 /*
 	print_stack("before ", a);
 
@@ -50,11 +51,12 @@ int	main(void)
 	rra(a, 1);
 	print_stack("rra    ", a);
 */
-	int arr[] = {44, 3, 2, 1}; // consider this the parsed array
+	int arr[] = {3, 2, 1, 0}; // consider this the parsed array
 	merge_sort(arr, 0, 3);
 	binary_search(a, arr);
 
-	complex(a, b, 0);
-	print_stack("after complex sort: ", a);
+	//complex(a, b, 1);
+	//print_stack("after complex sort: ", a);
+	ft_printf("%f%%", disorder(a, 4));
 	return (0);
 }
