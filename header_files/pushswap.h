@@ -57,5 +57,8 @@ int			count(int n);
 void		selection_sort(t_stack *sa, t_stack *sb, int bench);
 void		rotate(t_stack *s, int index, int bench);
 int			pos(t_stack *s, int target);
+void		medium_sort(t_stack *sa, t_stack *sb, int bench);
+void		rotatee(t_stack *s, int index, int bench);
+void		stage_a(t_stack *sa, t_stack *sb, int bench);
 
 #endif

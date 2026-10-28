@@ -20,19 +20,26 @@ int	pos(t_stack *s, int target)
 void	rotate(t_stack *s, int index, int bench)
 {
 	int	tmp;
-
 	if (index <= 0)
 		return ;
 	if (index <= s->size / 2)
 	{
-		while (index--)
+		while (index)
+        {
+            if (index == 1)
+            {
+                sa(s,bench);
+                break;
+            }
 			ra(s, bench);
+            index--;
+        }
 	}
 	else
 	{
 		tmp = s->size - index;
 		while (tmp--)
-			rra(s, bench);
+        	rra(s, bench);
 	}
 }
 
@@ -41,13 +48,13 @@ void	selection_sort(t_stack *sa, t_stack *sb, int bench)
 	int	index;
 	int	target;
 
-	target = 0;
+	target = sa->size - 1;
 	while (sa->size)
 	{
 		index = pos(sa, target);
 		rotate(sa, index, bench);
 		pb(sb, sa, bench);
-		target++;
+		target--;
 	}
 	while (sb->size)
 		pa(sa, sb, bench);
