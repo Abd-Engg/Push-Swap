@@ -6,11 +6,11 @@ static void	print_stack(char *twasel_ma3e, t_stack *s)
 	t_node	*cur;
 
 	printf("%s: ", twasel_ma3e);
-	cur = s->tail;
+	cur = s->head;
 	while (cur)
 	{
 		printf("%d ", cur->content);
-		cur = cur->next;
+		cur = cur->prev;
 	}
 	printf("\n");
 }
@@ -22,10 +22,12 @@ int	main(void)
 
 	a = init_stack();
 	b = init_stack();
-	add_new_node(a, 44);
-	add_new_node(a, 3);
-	add_new_node(a, 2);
-	add_new_node(a, 1);
+	add_new_node(a, 46);
+	add_new_node(a, 21);
+	add_new_node(a, 53);
+	add_new_node(a, 11);
+	add_new_node(a, 31);
+
 /*
 	print_stack("before ", a);
 
@@ -42,7 +44,6 @@ int	main(void)
 	print_stack("pa (a) ", a);
 	print_stack("pa (b) ", b);
 
-
 	ra(a, 1);
 	print_stack("ra     ", a);
 	
@@ -50,11 +51,11 @@ int	main(void)
 	rra(a, 1);
 	print_stack("rra    ", a);
 */
-	int arr[] = {44, 3, 2, 1}; // consider this the parsed array
-	merge_sort(arr, 0, 3);
+	int arr[] = {31,11,21,53,46}; // consider this the parsed array
+	merge_sort(arr, 0, 4);
 	binary_search(a, arr);
-
-	complex(a, b, 0);
-	print_stack("after complex sort: ", a);
+	//complex(a, b, 0);
+	selection_sort(a,b,0);
+	print_stack("after selection sort: ", a);
 	return (0);
 }
