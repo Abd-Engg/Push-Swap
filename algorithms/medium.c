@@ -16,7 +16,7 @@ void	stage_a(t_stack *sa, t_stack *sb, int bench)
 	int	start;
 	int	counter;
 
-	chunk = chunk_size(sa->size) * 3 / 2;
+	chunk = chunk_size(sa->size);
 	start = 0;
 	while (sa->size)
 	{
