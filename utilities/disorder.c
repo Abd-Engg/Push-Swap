@@ -6,19 +6,19 @@ float	disorder(t_stack *s, int size)
 	float	mistakes;
 	t_node	*curr;
 
-	curr = s->tail;
+	curr = s->head;
 	total_pairs = ((size - 1) * (size)) / 2.0;
 	mistakes = 0;
-	while (s->tail)
+	while (s->head)
 	{
-		curr = s->tail->next;
+		curr = s->head->prev;
 		while (curr)
 		{
-			if (s->tail->content > curr->content)
+			if (s->head->content > curr->content)
 				mistakes++;
-			curr = curr->next;
+			curr = curr->prev;
 		}
-		s->tail = s->tail->next;
+		s->head = s->head->prev;
 	}
 	return (mistakes / total_pairs);
 }

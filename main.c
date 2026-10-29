@@ -23,10 +23,10 @@ int	main(void)
 
 	a = init_stack();
 	b = init_stack();
-	add_new_node(a, 4);
 	add_new_node(a, 1);
-	add_new_node(a, 0);
-	add_new_node(a, -1);
+	add_new_node(a, 2);
+	add_new_node(a, 3);
+	add_new_node(a, 4);
 /*
 	print_stack("before ", a);
 
@@ -51,7 +51,7 @@ int	main(void)
 	rra(a, 1);
 	print_stack("rra    ", a);
 */
-	int arr[] = {4, 1, 0, -1}; // consider this the parsed array
+	int arr[] = {1, 2, 3, 4}; // consider this the parsed array
 	merge_sort(arr, 0, 3);
 	binary_search(a, arr);
 
