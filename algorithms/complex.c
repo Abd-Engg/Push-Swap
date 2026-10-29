@@ -29,7 +29,7 @@ void	complex(t_stack *stack_a, t_stack *stack_b, int bench)
 		while (j < stack_a->size)
 		{
 			curr = stack_a->head->content;
-			if ((curr >> i) & 1)
+			if (!((curr >> i) & 1))
 				pb(stack_b, stack_a, bench);
 			else
 				ra(stack_a, bench);

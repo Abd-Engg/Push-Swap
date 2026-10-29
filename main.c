@@ -51,12 +51,12 @@ int	main(void)
 	rra(a, 1);
 	print_stack("rra    ", a);
 */
-	int arr[] = {3, 2, 1, 0}; // consider this the parsed array
+	int arr[] = {4, 1, 0, -1}; // consider this the parsed array
 	merge_sort(arr, 0, 3);
 	binary_search(a, arr);
 
-	//complex(a, b, 1);
-	//print_stack("after complex sort: ", a);
+	complex(a, b, 1);
+	print_stack("after complex sort: ", a);
 	ft_printf("%f%%", disorder(a, 4));
 	return (0);
 }
