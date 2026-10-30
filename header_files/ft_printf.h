@@ -22,5 +22,6 @@ int	ft_putunsigned(unsigned int n);
 int	ft_putstr(char *s);
 int	ft_puthexa(char c, unsigned long n);
 int	ft_putptr(unsigned long n);
+int	ft_putfloat(float nb);
 
 #endif
