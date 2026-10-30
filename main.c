@@ -7,11 +7,11 @@ static void	print_stack(char *twasel_ma3e, t_stack *s)
 	t_node	*cur;
 
 	printf("%s: ", twasel_ma3e);
-	cur = s->tail;
+	cur = s->head;
 	while (cur)
 	{
 		printf("%d ", cur->content);
-		cur = cur->next;
+		cur = cur->prev;
 	}
 	printf("\n");
 }
@@ -34,18 +34,17 @@ int	main(void)
 	print_stack("sa     ", a);
 	
 
-	pb(b, a, 1);
-	print_stack("pb (a) ", a);
-	print_stack("pb (b) ", b);
+// // 	pb(b, a, 1);
+// // 	print_stack("pb (a) ", a);
+// // 	print_stack("pb (b) ", b);
 	
 	
-	pa(a, b, 1);
-	print_stack("pa (a) ", a);
-	print_stack("pa (b) ", b);
+// // 	pa(a, b, 1);
+// // 	print_stack("pa (a) ", a);
+// // 	print_stack("pa (b) ", b);
 
-
-	ra(a, 1);
-	print_stack("ra     ", a);
+// // 	ra(a, 1);
+//  //	print_stack("ra     ", a);
 	
 	
 	rra(a, 1);
