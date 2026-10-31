@@ -13,7 +13,7 @@ int	count(int n)
 	return (i);
 }
 
-void	complex(t_stack *stack_a, t_stack *stack_b, int bench)
+void	complex_sort(t_stack *stack_a, t_stack *stack_b, int bench)
 {
 	int	iterations;
 	int	i;

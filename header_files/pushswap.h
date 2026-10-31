@@ -4,6 +4,23 @@
 # include <stddef.h>
 # include <stdlib.h>
 
+typedef enum e_strategy{
+    simple = 1,
+    medium = 2,
+    complex = 3,
+	adaptive = 4,
+	NONE = -1
+} t_strategy;
+
+typedef struct s_parsing
+{
+	t_strategy	str;
+	int			*data;
+	int			size;
+	int			error;
+	int			is_bench;
+}	parsing;
+
 typedef struct s_node
 {
 	int				content;
@@ -52,7 +69,7 @@ void		sort(int *arr, int l, int mid, int r);
 int			*fill_arr(int *arr, int size, int idx);
 void		binary_search(t_stack *s, int *arr);
 void		merge_sort(int *arr, int l, int r);
-void		complex(t_stack *stack_a, t_stack *stack_b, int bench);
+void		complex_sort(t_stack *stack_a, t_stack *stack_b, int bench);
 int			count(int n);
 float		disorder(t_stack *s, int size);
 void		selection_sort(t_stack *sa, t_stack *sb, int bench);
@@ -61,5 +78,17 @@ int			pos(t_stack *s, int target);
 void		medium_sort(t_stack *sa, t_stack *sb, int bench);
 void		rotate_b(t_stack *s, int index, int bench);
 void		stage_a(t_stack *sa, t_stack *sb, int bench);
+//
+parsing	parsing_input(char **s, int size);
+int isdup(int *data,int size);
+int *add_data(char **s,int start,int size);
+t_strategy add_str(char **s,int *start);
+int checking(char **s,int size);
+parsing init_r();
+t_strategy	set_str(char *s);
+int	is_number(char *s);
+int	isflage(char *s);
+int	is_bench(char *s);
+t_strategy _disorder(t_stack *a);
 
 #endif
