@@ -18,16 +18,19 @@ static void	print_stack(char *twasel_ma3e, t_stack *s)
 
 int main(int argc,char **argv)
 {
-	parsing _input = parsing_input(argv,argc);
+	parsing _input = parsing_input(argv + 1, argc - 1);
 	t_stack *a = init_stack();
 	t_stack *b = init_stack();
 	if (_input.error)
+	{
 		ft_printf("ERROR\n");
-	
+		return (0);
+	}
 	int i = 0;
 	while (i < _input.size)
 	{
 		add_new_node(a,_input.data[i]);
+		ft_printf("%d\n", _input.data[i]);
 		i++;	
 	}
 

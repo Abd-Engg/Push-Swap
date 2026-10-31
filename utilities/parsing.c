@@ -59,7 +59,7 @@ parsing init_r()
 
 int checking(char **s,int size)
 {
-    int counter = 1;
+    int counter = 0;
     int num_flags = 0;
     while (counter < size && isflage(s[counter]))
     {
@@ -129,24 +129,45 @@ int isdup(int *data,int size)
     return 0;
 }
 
+#include <stdio.h>
 parsing	parsing_input(char **s, int size)
 {
+	char	*joined;
+	char	**splitted;
+	int		k;
 
-    parsing return_value = init_r();
-    if (!checking(s,size))
+	k = 0;
+	joined = NULL;
+	splitted = NULL;
+	while (k < size)
+	{
+		joined = ft_strjoin(joined, s[k]);
+		k++;
+	}
+	printf("\njoined: \"%s\"\n", joined);
+	splitted = ft_split(joined, ' ');
+    int ssss = 0;
+	while (splitted[ssss])
+	{
+		printf("\nsp[%d]; \"%s\"", ssss, splitted[ssss]);
+		ssss++;
+	}
+	printf("\n");
+	parsing return_value = init_r();
+    if (!checking(splitted, size))
     {
         return_value.error = 1;
         return(return_value);
     }
-    int i = 1;
-    if (is_bench(s[i]))
+    int i = 0;
+    if (is_bench(splitted[i]))
     {
         return_value.is_bench = 1;
         i++;
     }
-    return_value.str = add_str(s,&i);
-    return_value.size = size - i;
-    return_value.data = add_data(s,i,return_value.size);
+    return_value.str = add_str(splitted,&i);
+	return_value.size = ssss - i;
+    return_value.data = add_data(splitted,i,return_value.size);
     return_value.error = isdup(return_value.data,return_value.size);
     return return_value;
 }
