@@ -78,17 +78,18 @@ int			pos(t_stack *s, int target);
 void		medium_sort(t_stack *sa, t_stack *sb, int bench);
 void		rotate_b(t_stack *s, int index, int bench);
 void		stage_a(t_stack *sa, t_stack *sb, int bench);
-//
-parsing	parsing_input(char **s, int size);
-int isdup(int *data,int size);
-int *add_data(char **s,int start,int size);
-t_strategy add_str(char **s,int *start);
-int checking(char **s,int size);
-parsing init_r();
+parsing		parsing_input(char **s, int size);
+int 		isdup(int *data,int size);
+int 		*add_data(char **s,int start,int size);
+t_strategy 	add_str(char **s,int *start);
+int			checking(char **s,int size);
+parsing		init_r();
 t_strategy	set_str(char *s);
-int	is_number(char *s);
-int	isflage(char *s);
-int	is_bench(char *s);
-t_strategy _disorder(t_stack *a);
+int			is_number(char *s);
+int			isflage(char *s);
+int			is_bench(char *s);
+t_strategy	_disorder(t_stack *a);
+void		print_benchmark(t_stack *a, t_stack *b, float dis, parsing _input);
+
 
 #endif
