@@ -23,7 +23,8 @@ static int	handler(int fd, char format, va_list args)
 	else if (format == '%')
 		return (ft_putchar(fd, '%'));
 	else if (format == 'x' || format == 'X')
-		return (ft_puthexa(fd, format, (unsigned long)va_arg(args, unsigned int)));
+		return (ft_puthexa(fd, format,
+				(unsigned long)va_arg(args, unsigned int)));
 	else if (format == 'p')
 		return (ft_putptr(fd, (unsigned long)va_arg(args, void *)));
 	else if (format == 'u')

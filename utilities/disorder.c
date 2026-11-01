@@ -5,7 +5,9 @@ float	disorder(t_stack *s, int size)
 	float	total_pairs;
 	float	mistakes;
 	t_node	*curr;
-	t_node *c = s->head;
+	t_node	*c;
+
+	c = s->head;
 	curr = s->head;
 	total_pairs = ((size - 1) * (size)) / 2.0;
 	mistakes = 0;
@@ -23,13 +25,15 @@ float	disorder(t_stack *s, int size)
 	return (mistakes / total_pairs);
 }
 
-t_strategy _disorder(t_stack *a)
+t_strategy	_disorder(t_stack *a)
 {
-	float dis = disorder(a,a->size);
+	float	dis;
+
+	dis = disorder(a, a->size);
 	if (dis < 0.2)
-		return simple;
-	else if(dis < 0.5)
-		return medium;
+		return (simple);
+	else if (dis < 0.5)
+		return (medium);
 	else
-		return complex;
+		return (complex);
 }
