@@ -4,7 +4,7 @@
 void	ss(t_stack *sa, t_stack *sb, int bench)
 {
 	if (!bench)
-		ft_printf("ss\n");
+		ft_printf(1, "ss\n");
 	swap(sa);
 	swap(sb);
 	sa->op.ss++;
@@ -13,7 +13,7 @@ void	ss(t_stack *sa, t_stack *sb, int bench)
 void	rr(t_stack *sa, t_stack *sb, int bench)
 {
 	if (!bench)
-		ft_printf("rr\n");
+		ft_printf(1, "rr\n");
 	rot(sa);
 	rot(sb);
 	sa->op.rot_both++;
@@ -22,7 +22,7 @@ void	rr(t_stack *sa, t_stack *sb, int bench)
 void	rrr(t_stack *sa, t_stack *sb, int bench)
 {
 	if (!bench)
-		ft_printf("rrr\n");
+		ft_printf(1, "rrr\n");
 	revrot(sa);
 	revrot(sb);
 	sa->op.revrot_both++;

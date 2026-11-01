@@ -12,7 +12,7 @@
 
 #include "../../header_files/ft_printf.h"
 
-int	ft_puthexa(char c, unsigned long n)
+int	ft_puthexa(int fd, char c, unsigned long n)
 {
 	char	*sc;
 	char	*s;
@@ -22,17 +22,17 @@ int	ft_puthexa(char c, unsigned long n)
 	s = "0123456789abcdef";
 	sc = "0123456789ABCDEF";
 	if (c == 'p' && !n)
-		return (ft_putstr("(nil)"));
+		return (ft_putstr(fd, "(nil)"));
 	if (n > 15)
 	{
 		if (c == 'x')
-			count += ft_puthexa(c, n / 16);
+			count += ft_puthexa(fd, c, n / 16);
 		else
-			count += ft_puthexa(c, n / 16);
+			count += ft_puthexa(fd, c, n / 16);
 	}
 	if (c == 'x')
-		count += ft_putchar(s[n % 16]);
+		count += ft_putchar(fd, s[n % 16]);
 	else if (c == 'X')
-		count += ft_putchar(sc[n % 16]);
+		count += ft_putchar(fd, sc[n % 16]);
 	return (count);
 }

@@ -1,4 +1,5 @@
 #include "../header_files/pushswap.h"
+#include <stdio.h>
 
 int	count(int n)
 {
@@ -19,14 +20,16 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b, int bench)
 	int	i;
 	int	curr;
 	int	j;
+	int	size;
 
 	iterations = count(stack_a->size - 1);
 	i = 0;
 	j = 0;
+	size = stack_a->size;
 	while (i < iterations)
 	{
 		j = 0;
-		while (j < stack_a->size)
+		while (j < size)
 		{
 			curr = stack_a->head->content;
 			if (!((curr >> i) & 1))

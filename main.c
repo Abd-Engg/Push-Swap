@@ -23,14 +23,14 @@ int main(int argc,char **argv)
 	t_stack *b = init_stack();
 	if (_input.error)
 	{
-		ft_printf("ERROR\n");
+		ft_printf(2, "ERROR\n");
 		return (0);
 	}
 	int i = 0;
 	while (i < _input.size)
 	{
 		add_new_node(a,_input.data[i]);
-		ft_printf("%d\n", _input.data[i]);
+		ft_printf(1, "%d\n", _input.data[i]);
 		i++;	
 	}
 
