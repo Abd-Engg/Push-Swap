@@ -19,11 +19,16 @@ static void	print_stack(char *twasel_ma3e, t_stack *s)
 void	selector(parsing _input, t_stack *a, t_stack *b)
 {
 	float	dis;
+	int		flag;
 
+	flag = 0;
 	dis = disorder(a, a->size);
 	print_stack("a stack before ", a);
 	if (_input.str == adaptive)
-		_input.str = _disorder(a);	
+	{
+		_input.str = _disorder(a);
+		flag = 1;
+	}
 	if (_input.str == complex)
 	{
 		complex_sort(a, b, _input.is_bench);
@@ -40,6 +45,8 @@ void	selector(parsing _input, t_stack *a, t_stack *b)
 		print_stack("a stack simple ", a);
 	}
 	print_stack("a stack after ", a);
+	if (flag)
+		_input.str = adaptive;
 	if (_input.is_bench)
 		print_benchmark(a, b, dis, _input);
 }
