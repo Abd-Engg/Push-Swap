@@ -90,6 +90,8 @@ int			isflage(char *s);
 int			is_bench(char *s);
 t_strategy	_disorder(t_stack *a);
 void		print_benchmark(t_stack *a, t_stack *b, float dis, parsing _input);
+char		 **split_argv(char **s,int *size);
+void		 free_s(char **s);
 
 
 #endif

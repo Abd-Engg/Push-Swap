@@ -16,6 +16,18 @@ static void	print_stack(char *twasel_ma3e, t_stack *s)
 	printf("\n");
 }
 
+void free_stack(t_stack *s)
+{
+	t_node *cur = s->head;
+	while (cur)
+	{
+		t_node *tmp = cur;
+		cur = cur->prev;
+		free(tmp);
+	}
+	free(s);
+}
+
 void	selector(parsing _input, t_stack *a, t_stack *b)
 {
 	float	dis;
@@ -44,47 +56,35 @@ void	selector(parsing _input, t_stack *a, t_stack *b)
 		print_benchmark(a, b, dis, _input);
 }
 
-int main(int argc,char **argv)
+
+void PushSwap(parsing _input)
 {
-	parsing _input;
 	t_stack *a;
 	t_stack *b;
 	int		i;
 
 	i = 0;
-	_input = parsing_input(argv + 1, argc - 1);
 	a = init_stack();
 	b = init_stack();
 	if (_input.error)
 	{
 		ft_printf(2, "ERROR\n");
-		return (0);
+		return ;
 	}
 	while (i < _input.size)
 		add_new_node(a, _input.data[i++]);
 	merge_sort(_input.data, 0, _input.size - 1);	
 	binary_search(a, _input.data);
 	selector(_input, a, b);
+	free_stack(a);
+	free_stack(b);
+	free(_input.data);
 }
 
-// int	main(void)
-// {
-// 	t_stack	*a;
-// 	t_stack	*b;
-
-// 	a = init_stack();
-// 	b = init_stack();
-// 	add_new_node(a, 1);
-// 	add_new_node(a, 2);
-// 	add_new_node(a, 3);
-// 	add_new_node(a, 4);
-
-// 	int arr[] = {1, 2, 3, 4}; // consider this the parsed array
-// 	merge_sort(arr, 0, 3);
-// 	binary_search(a, arr);
-
-// 	complex(a, b, 1);
-// 	print_stack("after complex sort: ", a);
-// 	ft_printf("%f%%", disorder(a, 4));
-// 	return (0);
-// }
+int main(int argc,char **argv)
+{
+	parsing _input;
+	_input = parsing_input(argv + 1, argc - 1);
+	PushSwap(_input);
+	return (0);
+}

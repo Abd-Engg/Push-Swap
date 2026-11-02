@@ -63,10 +63,8 @@ int	ft_printf(int fd, const char *s, ...)
 {
 	va_list	args;
 	int		count;
-	int		i;
 
 	count = 0;
-	i = 0;
 	if (!s)
 		return (-1);
 	va_start(args, s);
