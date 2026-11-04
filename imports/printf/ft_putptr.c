@@ -12,9 +12,9 @@
 
 #include "../../header_files/ft_printf.h"
 
-int	ft_putptr(unsigned long n)
+int	ft_putptr(int fd, unsigned long n)
 {
 	if (!n)
-		return (ft_putstr("(nil)"));
-	return (ft_putstr("0x") + ft_puthexa('x', n));
+		return (ft_putstr(fd, "(nil)"));
+	return (ft_putstr(fd, "0x") + ft_puthexa(fd, 'x', n));
 }

@@ -4,7 +4,7 @@
 void	sa(t_stack *sa, int bench)
 {
 	if (!bench)
-		ft_printf("sa\n");
+		ft_printf(1, "sa\n");
 	swap(sa);
 	sa->op.s++;
 }
@@ -12,7 +12,7 @@ void	sa(t_stack *sa, int bench)
 void	pa(t_stack *sa, t_stack *sb, int bench)
 {
 	if (!bench)
-		ft_printf("pa\n");
+		ft_printf(1, "pa\n");
 	push(sa, sb);
 	sa->op.p += 1;
 }
@@ -20,7 +20,7 @@ void	pa(t_stack *sa, t_stack *sb, int bench)
 void	ra(t_stack *sa, int bench)
 {
 	if (!bench)
-		ft_printf("ra\n");
+		ft_printf(1, "ra\n");
 	rot(sa);
 	sa->op.rot++;
 }
@@ -28,7 +28,7 @@ void	ra(t_stack *sa, int bench)
 void	rra(t_stack *sa, int bench)
 {
 	if (!bench)
-		ft_printf("rra\n");
+		ft_printf(1, "rra\n");
 	revrot(sa);
 	sa->op.revrot++;
 }

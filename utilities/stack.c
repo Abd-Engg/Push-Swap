@@ -15,6 +15,7 @@ t_stack	*init_stack(void)
 	stack->op.ss = 0;
 	stack->op.rot_both = 0;
 	stack->op.revrot_both = 0;
+	stack->size = 0;
 	return (stack);
 }
 

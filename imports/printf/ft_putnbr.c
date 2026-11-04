@@ -12,7 +12,7 @@
 
 #include "../../header_files/ft_printf.h"
 
-int	ft_putnbr(int nb)
+int	ft_putnbr(int fd, int nb)
 {
 	char	c;
 	long	n;
@@ -22,12 +22,12 @@ int	ft_putnbr(int nb)
 	n = nb;
 	if (n < 0)
 	{
-		count += ft_putchar('-');
+		count += ft_putchar(fd, '-');
 		n *= -1;
 	}
 	if (n >= 10)
-		count += ft_putnbr(n / 10);
+		count += ft_putnbr(fd, n / 10);
 	c = n % 10 + '0';
-	count += ft_putchar(c);
+	count += ft_putchar(fd, c);
 	return (count);
 }

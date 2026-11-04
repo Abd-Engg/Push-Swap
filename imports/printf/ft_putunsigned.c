@@ -12,15 +12,15 @@
 
 #include "../../header_files/ft_printf.h"
 
-int	ft_putunsigned(unsigned int n)
+int	ft_putunsigned(int fd, unsigned int n)
 {
 	char	c;
 	int		counter;
 
 	counter = 0;
 	if (n >= 10)
-		counter += ft_putunsigned(n / 10);
+		counter += ft_putunsigned(fd, n / 10);
 	c = n % 10 + '0';
-	counter += ft_putchar(c);
+	counter += ft_putchar(fd, c);
 	return (counter);
 }
