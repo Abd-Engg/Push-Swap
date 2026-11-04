@@ -38,19 +38,19 @@ void	rotate(t_stack *s, int index, int bench)
 	}
 }
 
-void	selection_sort(t_stack *sa, t_stack *sb, int bench)
+void	simple_sort(t_stack *stack_a, t_stack *stack_b, int bench)
 {
 	int	index;
 	int	target;
 
 	target = 0;
-	while (sa->size)
+	while (stack_a->size)
 	{
-		index = pos(sa, target);
-		rotate(sa, index, bench);
-		pb(sb, sa, bench);
+		index = pos(stack_a, target);
+		rotate(stack_a, index, bench);
+		pb(stack_b, stack_a, bench);
 		target++;
 	}
-	while (sb->size)
-		pa(sa, sb, bench);
+	while (stack_b->size)
+		pa(stack_a, stack_b, bench);
 }

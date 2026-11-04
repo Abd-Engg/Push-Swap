@@ -14,17 +14,16 @@ t_strategy	set_str(char *s)
 	return (NONE);
 }
 
-t_strategy add_str(char **s,int *start)
+t_strategy add_str(char **s, int start)
 {
-    int counter = *start;
-    t_strategy ret = adaptive;
+    t_strategy	ret;
 
-    while (isflage(s[counter]))
+	ret = adaptive;
+    if (isflag(s[start]))
     {
-        ret = set_str(s[counter]);
-        counter++;
+        ret = set_str(s[start]);
+        start++;
     }
-    *start =  counter;
     return ret;
 }
 

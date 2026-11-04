@@ -1,6 +1,5 @@
 #include "header_files/pushswap.h"
 #include "header_files/ft_printf.h"
-#include <stdio.h>
 
 void free_stack(t_stack *s)
 {
@@ -31,7 +30,7 @@ void	selector(parsing _input, t_stack *a, t_stack *b)
 	else if (_input.str == medium)
 		medium_sort(a, b, _input.is_bench);
 	else if (_input.str == simple)
-		selection_sort(a, b, _input.is_bench);
+		simple_sort(a, b, _input.is_bench);
 	if (flag)
 		_input.str = adaptive;
 	if (_input.is_bench)
