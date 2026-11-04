@@ -17,15 +17,15 @@ void free_stack(t_stack *s)
 void	selector(parsing _input, t_stack *a, t_stack *b)
 {
 	float	dis;
-	bool  	flag;
-	
-	flag = false;
+	int		flag;
+
+	flag = 0;
 	dis = disorder(a, a->size);
 	if (_input.str == adaptive)
 	{
-		_input.str = _disorder(a);	
-		flag = true;
-	}	
+		_input.str = _disorder(a);
+		flag = 1;
+	}
 	if (_input.str == complex)
 		complex_sort(a, b, _input.is_bench);
 	else if (_input.str == medium)
