@@ -25,7 +25,7 @@ void	rotate(t_stack *s, int index, int bench)
 		return ;
 	if (index == 1)
 		sa(s, bench);
-	else if (index <= s->size / 2)
+	else if (index <= (int)s->size / 2)
 	{
 		while (index--)
 			ra(s, bench);

@@ -42,7 +42,7 @@ void	rotate_b(t_stack *s, int index, int bench)
 
 	if (index <= 0)
 		return ;
-	if (index <= s->size / 2)
+	if (index <= (int)s->size / 2)
 	{
 		while (index--)
 			rb(s, bench);

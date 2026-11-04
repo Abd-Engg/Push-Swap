@@ -1,6 +1,6 @@
 #include "../header_files/ft_printf.h"
 #include "../header_files/pushswap.h"
-
+#include <stdio.h>
 void	sb(t_stack *sb, int bench)
 {
 	if (!bench)
