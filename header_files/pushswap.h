@@ -82,7 +82,7 @@ void		rotate_b(t_stack *s, int index, int bench);
 void		stage_a(t_stack *stack_a, t_stack *stack_b, int bench);
 parsing		parsing_input(char **s, int size);
 int 		isdup(int *data,int size);
-long 		*add_data(char **s, int start, parsing *return_value);
+int 		*add_data(char **s, int start, parsing *return_value);
 t_strategy 	add_str(char **s,int start);
 int			check(char **s,int size);
 parsing		init_r();

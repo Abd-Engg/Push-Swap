@@ -27,10 +27,11 @@ t_strategy add_str(char **s, int start)
     return (ret);
 }
 
-long *add_data(char **s,int start, parsing *return_value)
+int *add_data(char **s,int start, parsing *return_value)
 {
-    long	*ret;
+    int		*ret;
 	int		size;
+	int		num;
 
 	size = return_value->size;
 	ret = malloc(sizeof(long) * size);
@@ -39,9 +40,10 @@ long *add_data(char **s,int start, parsing *return_value)
     int counter = 0;
     while (counter < size)
     {
-        ret[counter] = ft_atoi(s[start + counter]);
-		if (ret[counter] > int_max || ret[counter] < int_min)
+		num = ft_atoi(s[start + counter]);
+		if (num > int_max || num < int_min)
 			return_value->error = 1;
+		ret[counter] = num;
         counter++;
     }
     return (ret);

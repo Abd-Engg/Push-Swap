@@ -25,7 +25,7 @@ char **split_argv(char **s,int *size)
     splitted = ft_split(joined, ' ');
     free(joined);
     *size = counter;
-    return splitted;
+    return (splitted);
 }
 
 void free_s(char **s)
@@ -59,7 +59,7 @@ parsing	parsing_input(char **s, int size)
 		counter++;
     }
 	return_value.size = size - counter;
-    return_value.data = (int *)add_data(splitted, counter, &return_value);
+    return_value.data = add_data(splitted, counter, &return_value);
     return_value.error |= isdup(return_value.data, return_value.size);
     free_s(splitted);
     return (return_value);
