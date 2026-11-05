@@ -1,6 +1,5 @@
 #include "../../header_files/pushswap.h"
 #include "../../header_files/libft.h"
-#include <stdio.h>
 
 int	is_bench(char *s)
 {

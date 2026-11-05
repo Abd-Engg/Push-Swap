@@ -3,6 +3,8 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+# define int_max 2147483647
+# define int_min -2147483648
 
 typedef enum e_strategy{
     simple = 1,
@@ -80,7 +82,7 @@ void		rotate_b(t_stack *s, int index, int bench);
 void		stage_a(t_stack *stack_a, t_stack *stack_b, int bench);
 parsing		parsing_input(char **s, int size);
 int 		isdup(int *data,int size);
-int 		*add_data(char **s,int start,int size);
+long 		*add_data(char **s, int start, parsing *return_value);
 t_strategy 	add_str(char **s,int start);
 int			check(char **s,int size);
 parsing		init_r();
@@ -92,6 +94,6 @@ t_strategy	_disorder(t_stack *a);
 void		print_benchmark(t_stack *a, t_stack *b, float dis, parsing _input);
 char		 **split_argv(char **s,int *size);
 void		 free_s(char **s);
-
+int			check_error(parsing return_value);
 
 #endif

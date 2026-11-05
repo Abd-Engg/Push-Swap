@@ -1,6 +1,5 @@
 #include "../../header_files/libft.h"
 #include "../../header_files/pushswap.h"
-#include "../../header_files/ft_printf.h"
 
 parsing init_r()
 {
@@ -60,8 +59,8 @@ parsing	parsing_input(char **s, int size)
 		counter++;
     }
 	return_value.size = size - counter;
-    return_value.data = add_data(splitted, counter, return_value.size);
-    return_value.error = isdup(return_value.data, return_value.size);
+    return_value.data = (int *)add_data(splitted, counter, &return_value);
+    return_value.error |= isdup(return_value.data, return_value.size);
     free_s(splitted);
     return (return_value);
 }
