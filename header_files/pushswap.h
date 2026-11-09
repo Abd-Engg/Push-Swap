@@ -3,16 +3,17 @@
 
 # include <stddef.h>
 # include <stdlib.h>
-# define int_max 2147483647
-# define int_min -2147483648
+# define T_MAX 2147483647
+# define T_MIN -2147483648
 
-typedef enum e_strategy{
-    simple = 1,
-    medium = 2,
-    complex = 3,
+typedef enum e_strategy
+{
+	simple = 1,
+	medium = 2,
+	complex = 3,
 	adaptive = 4,
 	NONE = -1
-} t_strategy;
+}	t_strategy;
 
 typedef struct s_parsing
 {
@@ -21,7 +22,7 @@ typedef struct s_parsing
 	int			size;
 	int			error;
 	int			is_bench;
-}	parsing;
+}	t_parsing;
 
 typedef struct s_node
 {
@@ -56,44 +57,45 @@ void		push(t_stack *s1, t_stack *s2);
 void		swap(t_stack *s1);
 void		rot(t_stack *s1);
 void		revrot(t_stack *s1);
-void		ra(t_stack *sa, int bench);
-void		pa(t_stack *sa, t_stack *sb, int bench);
-void		sa(t_stack *sa, int bench);
-void		sb(t_stack *sb, int bench);
-void		pb(t_stack *sb, t_stack *sa, int bench);
-void		rb(t_stack *sb, int bench);
-void		rra(t_stack *sa, int bench);
-void		rrb(t_stack *sb, int bench);
-void		ss(t_stack *sa, t_stack *sb, int bench);
-void		rr(t_stack *sa, t_stack *sb, int bench);
-void		rrr(t_stack *sa, t_stack *sb, int bench);
+void		ra(t_stack *sa);
+void		pa(t_stack *sa, t_stack *sb);
+void		sa(t_stack *sa);
+void		sb(t_stack *sb);
+void		pb(t_stack *sb, t_stack *sa);
+void		rb(t_stack *sb);
+void		rra(t_stack *sa);
+void		rrb(t_stack *sb);
+void		ss(t_stack *sa, t_stack *sb);
+void		rr(t_stack *sa, t_stack *sb);
+void		rrr(t_stack *sa, t_stack *sb);
 void		sort(int *arr, int l, int mid, int r);
 int			*fill_arr(int *arr, int size, int idx);
 void		binary_search(t_stack *s, int *arr);
 void		merge_sort(int *arr, int l, int r);
-void		complex_sort(t_stack *stack_a, t_stack *stack_b, int bench);
+void		complex_sort(t_stack *stack_a, t_stack *stack_b);
 int			count(int n);
-float		disorder(t_stack *s, int size);
-void		simple_sort(t_stack *stack_a, t_stack *stack_b, int bench);
-void		rotate(t_stack *s, int index, int bench);
+double		disorder(t_stack *s, int size);
+void		simple_sort(t_stack *stack_a, t_stack *stack_b);
+void		rotate(t_stack *s, int index);
 int			pos(t_stack *s, int target);
-void		medium_sort(t_stack *stack_a, t_stack *stack_b, int bench);
-void		rotate_b(t_stack *s, int index, int bench);
-void		stage_a(t_stack *stack_a, t_stack *stack_b, int bench);
-parsing		parsing_input(char **s, int size);
-int 		isdup(int *data,int size);
-int 		*add_data(char **s, int start, parsing *return_value);
-t_strategy 	add_str(char **s,int start);
-int			check(char **s,int size);
-parsing		init_r();
+void		medium_sort(t_stack *stack_a, t_stack *stack_b);
+void		rotate_b(t_stack *s, int index);
+void		stage_a(t_stack *stack_a, t_stack *stack_b);
+t_parsing	parsing_input(char **s, int size);
+int			isdup(int *data, int size);
+int			*add_data(char **s, int start, t_parsing *return_value);
+t_strategy	add_str(char **s, int start);
+int			check(char **s, int size);
+t_parsing	init_r(void);
 t_strategy	set_str(char *s);
 int			is_number(char *s);
 int			isflag(char *s);
 int			is_bench(char *s);
 t_strategy	_disorder(t_stack *a);
-void		print_benchmark(t_stack *a, t_stack *b, float dis, parsing _input);
-char		 **split_argv(char **s,int *size);
-void		 free_s(char **s);
-int			check_error(parsing return_value);
+void		print_benchmark(t_stack *a, t_stack *b, float dis,
+				t_parsing _input);
+char		**split_argv(char **s, int *size);
+void		free_s(char **s);
+int			check_error(t_parsing return_value);
 
 #endif

@@ -20,7 +20,7 @@ char	*complexity(float dis)
 	return ("O(nlogn)");
 }
 
-void	print_benchmark(t_stack *a, t_stack *b, float dis, parsing _input)
+void	print_benchmark(t_stack *a, t_stack *b, float dis, t_parsing _input)
 {
 	ft_printf(2, "[bench] disorder: %f%%\n", dis);
 	if (_input.str == 1)
@@ -36,8 +36,8 @@ void	print_benchmark(t_stack *a, t_stack *b, float dis, parsing _input)
 	}
 	ft_printf(2, "[bench] total_ops: %d\n", total_operations(a, b));
 	ft_printf(2, "[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
-			a->op.s, b->op.s, a->op.ss, a->op.p, b->op.p);
+		a->op.s, b->op.s, a->op.ss, a->op.p, b->op.p);
 	ft_printf(2, "[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
-			a->op.rot, b->op.rot, a->op.rot_both, a->op.revrot,
-			b->op.revrot, a->op.revrot_both);
+		a->op.rot, b->op.rot, a->op.rot_both, a->op.revrot,
+		b->op.revrot, a->op.revrot_both);
 }

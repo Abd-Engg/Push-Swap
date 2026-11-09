@@ -17,28 +17,28 @@ int	pos(t_stack *s, int target)
 	return (-1);
 }
 
-void	rotate(t_stack *s, int index, int bench)
+void	rotate(t_stack *s, int index)
 {
 	int	tmp;
 
 	if (index <= 0)
 		return ;
 	if (index == 1)
-		sa(s, bench);
+		sa(s);
 	else if (index <= (int)s->size / 2)
 	{
 		while (index--)
-			ra(s, bench);
+			ra(s);
 	}
 	else
 	{
 		tmp = s->size - index;
 		while (tmp--)
-			rra(s, bench);
+			rra(s);
 	}
 }
 
-void	simple_sort(t_stack *stack_a, t_stack *stack_b, int bench)
+void	simple_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	index;
 	int	target;
@@ -47,10 +47,10 @@ void	simple_sort(t_stack *stack_a, t_stack *stack_b, int bench)
 	while (stack_a->size)
 	{
 		index = pos(stack_a, target);
-		rotate(stack_a, index, bench);
-		pb(stack_b, stack_a, bench);
+		rotate(stack_a, index);
+		pb(stack_b, stack_a);
 		target++;
 	}
 	while (stack_b->size)
-		pa(stack_a, stack_b, bench);
+		pa(stack_a, stack_b);
 }

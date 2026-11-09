@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   complex.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nalrjoub <nalrjoub@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/09 14:33:25 by nalrjoub          #+#    #+#             */
+/*   Updated: 2026/11/09 14:33:34 by nalrjoub         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../header_files/pushswap.h"
 
 int	count(int n)
@@ -13,7 +24,7 @@ int	count(int n)
 	return (i);
 }
 
-void	complex_sort(t_stack *stack_a, t_stack *stack_b, int bench)
+void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	iterations;
 	int	i;
@@ -32,12 +43,12 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b, int bench)
 		{
 			curr = stack_a->head->content;
 			if (!((curr >> i) & 1))
-				pb(stack_b, stack_a, bench);
+				pb(stack_b, stack_a);
 			else
-				ra(stack_a, bench);
+				ra(stack_a);
 		}
 		while (stack_b->head)
-			pa(stack_a, stack_b, bench);
+			pa(stack_a, stack_b);
 		i++;
 	}
 }
