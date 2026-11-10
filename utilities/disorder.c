@@ -29,10 +29,10 @@ double	disorder(t_stack *s, int size)
 
 t_strategy	_disorder(t_stack *a)
 {
-	long	dis;
+	double	dis;
 
 	dis = disorder(a, a->size);
-	if (dis < 0.2)
+	if (dis < 0.2 || a->size <= 5)
 		return (simple);
 	else if (dis < 0.5)
 		return (medium);

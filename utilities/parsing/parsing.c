@@ -18,7 +18,9 @@ char	**split_argv(char **s, int *size)
 	char	*joined;
 	char	**splitted;
 	int		counter;
+	int		i;
 
+	i = 0;
 	counter = 0;
 	joined = NULL;
 	splitted = NULL;
@@ -26,7 +28,9 @@ char	**split_argv(char **s, int *size)
 		joined = ft_strjoin(joined, s[counter++]);
 	splitted = ft_split(joined, ' ');
 	free(joined);
-	*size = counter;
+	while (splitted[i])
+		i++;
+	*size = i;
 	return (splitted);
 }
 
