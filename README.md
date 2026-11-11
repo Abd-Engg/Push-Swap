@@ -34,7 +34,7 @@ Allowed operations are as follows:
 ### Disorder
 Disorder is a value in `[0, 1]` measuring how far the initial stack `a` is from sorted. It is the ratio of **inversions** (pairs `i < j` with `a[i] > a[j]`) to the **total number of pairs** `n(n-1)/2`.
 - `0`: already sorted
-- `1`: sorted in exact reverse order
+- `1`: sorted in exact reverse order\
 This metric is used when no flag is set for the sorting strategy, and when the `benchmark` flag is set, as the disorder is displayed as a percentage with two decimals.
 
 ## Instructions
