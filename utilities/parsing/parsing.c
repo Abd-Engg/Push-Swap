@@ -47,8 +47,8 @@ void	free_s(char **s)
 t_parsing	parsing_input(char **s, int size)
 {
 	t_parsing	return_value;
-	int		counter;
-	char	**splitted;
+	int			counter;
+	char		**splitted;
 
 	counter = 0;
 	splitted = split_argv(s, &size);

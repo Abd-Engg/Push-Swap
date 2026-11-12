@@ -117,7 +117,6 @@ for target = n-1 down to 0:
 ```
 
 ### 3. Complex: LSD radix sort, O(n log n)
-During each iteration, .
 
 **LSD radix sort on base 2** for each element (the rank of each element in our case).\
 The big picture of the algorithm is that fpr each bit, from the lowest to the highest (from LSB to MSB). elements whose but is `0` go to `stack B`, elements whose bit is `1` stay in `a`. Then bring everything back to `a`.

@@ -28,11 +28,11 @@ void	selector(t_parsing _input, t_stack *a, t_stack *b)
 		_input.str = _disorder(a);
 		flag = 1;
 	}
-	if (_input.str == complex)
+	if (_input.str == complex && dis)
 		complex_sort(a, b);
-	else if (_input.str == medium)
+	else if (_input.str == medium && dis)
 		medium_sort(a, b);
-	else if (_input.str == simple)
+	else if (_input.str == simple && dis)
 		simple_sort(a, b);
 	if (flag)
 		_input.str = adaptive;
