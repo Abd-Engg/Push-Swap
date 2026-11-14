@@ -1,22 +1,24 @@
 #include "header_files/pushswap.h"
 #include "header_files/ft_printf.h"
-#include <stdio.h>
 
-void free_stack(t_stack *s)
+void	free_stack(t_stack *s)
 {
-	t_node *cur = s->head;
+	t_node	*cur;
+	t_node	*tmp;
+
+	cur = s->head;
 	while (cur)
 	{
-		t_node *tmp = cur;
+		tmp = cur;
 		cur = cur->prev;
 		free(tmp);
 	}
 	free(s);
 }
 
-void	selector(parsing _input, t_stack *a, t_stack *b)
+void	selector(t_parsing _input, t_stack *a, t_stack *b)
 {
-	float	dis;
+	double	dis;
 	int		flag;
 
 	flag = 0;
@@ -26,22 +28,22 @@ void	selector(parsing _input, t_stack *a, t_stack *b)
 		_input.str = _disorder(a);
 		flag = 1;
 	}
-	if (_input.str == complex)
-		complex_sort(a, b, _input.is_bench);
-	else if (_input.str == medium)
-		medium_sort(a, b, _input.is_bench);
-	else if (_input.str == simple)
-		selection_sort(a, b, _input.is_bench);
+	if (_input.str == complex && dis)
+		complex_sort(a, b);
+	else if (_input.str == medium && dis)
+		medium_sort(a, b);
+	else if (_input.str == simple && dis)
+		simple_sort(a, b);
 	if (flag)
 		_input.str = adaptive;
 	if (_input.is_bench)
 		print_benchmark(a, b, dis, _input);
 }
 
-void PushSwap(parsing _input)
+void	push_swap(t_parsing _input)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 	int		i;
 
 	i = _input.size - 1;
@@ -54,7 +56,7 @@ void PushSwap(parsing _input)
 	}
 	while (i >= 0)
 		add_new_node(a, _input.data[i--]);
-	merge_sort(_input.data, 0, _input.size - 1);	
+	merge_sort(_input.data, 0, _input.size - 1);
 	binary_search(a, _input.data);
 	selector(_input, a, b);
 	free_stack(a);
@@ -62,10 +64,11 @@ void PushSwap(parsing _input)
 	free(_input.data);
 }
 
-int main(int argc,char **argv)
+int	main(int argc, char **argv)
 {
-	parsing _input;
+	t_parsing	_input;
+
 	_input = parsing_input(argv + 1, argc - 1);
-	PushSwap(_input);
+	push_swap(_input);
 	return (0);
 }

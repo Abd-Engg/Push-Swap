@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nalrjoub <nalrjoub@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: nalrjoub <nalrjoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:00:10 by nalrjoub          #+#    #+#             */
-/*   Updated: 2026/09/08 14:00:13 by nalrjoub         ###   ########.fr       */
+/*   Updated: 2026/11/09 14:52:51 by nalrjoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
@@ -30,7 +31,7 @@ int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 size_t			ft_strlen(const char *s);
-int				ft_atoi(const char *nptr);
+long			ft_atoi(const char *nptr);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memset(void *s, int c, size_t n);
@@ -61,8 +62,6 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 char			*ft_strtrim(char const *s1, char const *set);
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-void			 (*del)(void *));
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strcmp(const char *s1, const char *s2);

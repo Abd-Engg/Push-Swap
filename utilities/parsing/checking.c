@@ -6,7 +6,7 @@ int	is_bench(char *s)
 	return (ft_strcmp(s, "--bench") == 0);
 }
 
-int	isflage(char *s)
+int	isflag(char *s)
 {
 	if (!s)
 		return (0);
@@ -33,42 +33,46 @@ int	is_number(char *s)
 	return (1);
 }
 
-int checking(char **s,int size)
+int	check(char **s, int size)
 {
-    int counter = 0;
-    int num_flags = 0;
-    while (counter < size && isflage(s[counter]))
-    {
-        num_flags++;
-        counter++;      
-    }
-    
-    if ( (num_flags > 2 || counter >= size ) || (2 < size && is_bench(s[2])) )
-        return 0;
+	int	counter;
+	int	num_flags;
 
-    while (counter < size)
-    {
-        if(!is_number(s[counter]))
-            return 0;
-        counter++;
-    }
-    return 1;
+	counter = 0;
+	num_flags = 0;
+	while (counter < size && isflag(s[counter]))
+	{
+		num_flags++;
+		counter++;
+	}
+	if (num_flags > 2 || counter > size)
+		return (0);
+	while (counter < size)
+	{
+		if (!is_number(s[counter]))
+			return (0);
+		counter++;
+	}
+	return (1);
 }
 
-int isdup(int *data,int size)
-{ 
-    int i = 0;
-    int j = 0;
-    while (i < size)
-    {
-        j = i + 1;
-        while ( j < size)
-        {
-            if (data[i] == data[j])
-                return 1;
-           j++; 
-        }
-        i++;
-    }
-    return 0;
+int	isdup(int *data, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (data[i] == data[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

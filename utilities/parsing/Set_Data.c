@@ -14,30 +14,38 @@ t_strategy	set_str(char *s)
 	return (NONE);
 }
 
-t_strategy add_str(char **s,int *start)
+t_strategy	add_str(char **s, int start)
 {
-    int counter = *start;
-    t_strategy ret = adaptive;
+	t_strategy	ret;
 
-    while (isflage(s[counter]))
-    {
-        ret = set_str(s[counter]);
-        counter++;
-    }
-    *start =  counter;
-    return ret;
+	ret = adaptive;
+	if (isflag(s[start]))
+	{
+		ret = set_str(s[start]);
+		start++;
+	}
+	return (ret);
 }
 
-int *add_data(char **s,int start,int size)
+int	*add_data(char **s, int start, t_parsing *return_value)
 {
-    int *ret = malloc(sizeof(int) * size);
-    if (!ret)
-        return NULL;
-    int counter = 0;
-    while (counter < size)
-    {
-        ret[counter] = ft_atoi(s[start + counter]);
-        counter++;
-    }
-    return (ret);
+	int		*ret;
+	int		size;
+	long	num;
+	int		counter;
+
+	size = return_value->size;
+	ret = malloc(sizeof(long) * size);
+	if (!ret)
+		return (NULL);
+	counter = 0;
+	while (counter < size)
+	{
+		num = ft_atoi(s[start + counter]);
+		if (num > T_MAX || num < T_MIN)
+			return_value->error = 1;
+		ret[counter] = num;
+		counter++;
+	}
+	return (ret);
 }

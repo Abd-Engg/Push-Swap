@@ -10,33 +10,33 @@ int	chunk_size(int n)
 	return (i - 1);
 }
 
-void	stage_a(t_stack *sa, t_stack *sb, int bench)
+void	stage_a(t_stack *stack_a, t_stack *stack_b)
 {
 	int	chunk;
 	int	start;
 	int	counter;
 
-	chunk = chunk_size(sa->size);
+	chunk = chunk_size(stack_a->size);
 	start = 0;
-	while (sa->size)
+	while (stack_a->size)
 	{
 		counter = 0;
-		while (counter < chunk && sa->size)
+		while (counter < chunk && stack_a->size)
 		{
-			if (sa->head->content >= start
-				&& sa->head->content < start + chunk)
+			if (stack_a->head->content >= start
+				&& stack_a->head->content < start + chunk)
 			{
-				pb(sb, sa, bench);
+				pb(stack_b, stack_a);
 				counter++;
 			}
 			else
-				ra(sa, bench);
+				ra(stack_a);
 		}
 		start += chunk;
 	}
 }
 
-void	rotate_b(t_stack *s, int index, int bench)
+void	rotate_b(t_stack *s, int index)
 {
 	int	tmp;
 
@@ -45,26 +45,26 @@ void	rotate_b(t_stack *s, int index, int bench)
 	if (index <= (int)s->size / 2)
 	{
 		while (index--)
-			rb(s, bench);
+			rb(s);
 	}
 	else
 	{
 		tmp = s->size - index;
 		while (tmp--)
-			rrb(s, bench);
+			rrb(s);
 	}
 }
 
-void	medium_sort(t_stack *sa, t_stack *sb, int bench)
+void	medium_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	target;
 
-	stage_a(sa, sb, bench);
-	target = sb->size - 1;
-	while (sb->size)
+	stage_a(stack_a, stack_b);
+	target = stack_b->size - 1;
+	while (stack_b->size)
 	{
-		rotate_b(sb, pos(sb, target), bench);
-		pa(sa, sb, bench);
+		rotate_b(stack_b, pos(stack_b, target));
+		pa(stack_a, stack_b);
 		target--;
 	}
 }

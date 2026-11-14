@@ -1,11 +1,15 @@
 #include "../header_files/pushswap.h"
 
-float	disorder(t_stack *s, int size)
+double	disorder(t_stack *s, int size)
 {
-	float	total_pairs;
-	float	mistakes;
+	long	total_pairs;
+	long	mistakes;
 	t_node	*curr;
-	t_node *c = s->head;
+	t_node	*c;
+
+	if (!size)
+		return (0);
+	c = s->head;
 	curr = s->head;
 	total_pairs = ((size - 1) * (size)) / 2.0;
 	mistakes = 0;
@@ -20,16 +24,18 @@ float	disorder(t_stack *s, int size)
 		}
 		c = c->prev;
 	}
-	return (mistakes / total_pairs);
+	return ((double)mistakes / (double)total_pairs);
 }
 
-t_strategy _disorder(t_stack *a)
+t_strategy	_disorder(t_stack *a)
 {
-	float dis = disorder(a,a->size);
-	if (dis < 0.2)
-		return simple;
-	else if(dis < 0.5)
-		return medium;
+	double	dis;
+
+	dis = disorder(a, a->size);
+	if (dis < 0.2 || a->size <= 5)
+		return (simple);
+	else if (dis < 0.5)
+		return (medium);
 	else
-		return complex;
+		return (complex);
 }
