@@ -16,6 +16,13 @@ void	free_stack(t_stack *s)
 	free(s);
 }
 
+void	free_all(t_stack *a, t_stack *b, int *arr)
+{
+	free_stack(a);
+	free_stack(b);
+	free(arr);
+}
+
 void	selector(t_parsing _input, t_stack *a, t_stack *b)
 {
 	double	dis;
@@ -52,6 +59,7 @@ void	push_swap(t_parsing _input)
 	if (_input.error)
 	{
 		ft_printf(2, "ERROR\n");
+		free_all(a, b, _input.data);
 		return ;
 	}
 	while (i >= 0)
@@ -59,9 +67,7 @@ void	push_swap(t_parsing _input)
 	merge_sort(_input.data, 0, _input.size - 1);
 	binary_search(a, _input.data);
 	selector(_input, a, b);
-	free_stack(a);
-	free_stack(b);
-	free(_input.data);
+	free_all(a, b, _input.data);
 }
 
 int	main(int argc, char **argv)

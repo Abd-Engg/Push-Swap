@@ -56,7 +56,7 @@ t_parsing	parsing_input(char **s, int size)
 	if (!check(splitted, size))
 	{
 		return_value.error = 1;
-		return (return_value);
+		return (free_s(splitted), return_value);
 	}
 	while (counter < size && isflag(s[counter]))
 	{
