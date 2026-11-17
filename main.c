@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "header_files/definitions.h"
 #include "header_files/pushswap.h"
 #include "header_files/ft_printf.h"
+#include "header_files/libft.h"
 
 void	free_stack(t_stack *s)
 {
@@ -35,7 +37,7 @@ void	free_all(t_stack *a, t_stack *b, int *arr)
 	free(arr);
 }
 
-void	selector(t_parsing _input, t_stack *a, t_stack *b)
+void	selector(t_parsing _input, t_stack *a, t_stack *b, t_list **head)
 {
 	double	dis;
 	int		flag;
@@ -48,15 +50,17 @@ void	selector(t_parsing _input, t_stack *a, t_stack *b)
 		flag = 1;
 	}
 	if (_input.str == complex && dis)
-		complex_sort(a, b);
+		complex_sort(a, b, head);
 	else if (_input.str == medium && dis)
-		medium_sort(a, b);
+		medium_sort(a, b, head);
 	else if (_input.str == simple && dis)
-		simple_sort(a, b);
+		simple_sort(a, b, head);
 	if (flag)
 		_input.str = adaptive;
 	if (_input.is_bench)
 		print_benchmark(a, b, dis, _input);
+	free_all(a, b, _input.data);
+	ft_lstclear(head);
 }
 
 void	push_swap(t_parsing _input)
@@ -64,13 +68,15 @@ void	push_swap(t_parsing _input)
 	t_stack	*a;
 	t_stack	*b;
 	int		i;
+	t_list	*head;
 
+	head = NULL;
 	i = _input.size - 1;
 	a = init_stack();
 	b = init_stack();
 	if (_input.error)
 	{
-		ft_printf(2, "ERROR\n");
+		ft_printf(2, "Error\n");
 		free_all(a, b, _input.data);
 		return ;
 	}
@@ -78,8 +84,12 @@ void	push_swap(t_parsing _input)
 		add_new_node(a, _input.data[i--]);
 	merge_sort(_input.data, 0, _input.size - 1);
 	binary_search(a, _input.data);
-	selector(_input, a, b);
-	free_all(a, b, _input.data);
+	selector(_input, a, b, &head);
+	while (head)
+	{
+		ft_printf(1, "%s\n", (char *)head->content);
+		head = head->next;
+	}
 }
 
 int	main(int argc, char **argv)

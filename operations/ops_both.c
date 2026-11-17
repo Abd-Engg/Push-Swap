@@ -10,28 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header_files/ft_printf.h"
 #include "../header_files/pushswap.h"
+#include "../header_files/libft.h"
 
-void	ss(t_stack *sa, t_stack *sb)
+void	ss(t_stack *sa, t_stack *sb, t_list **operations)
 {
-	ft_printf(1, "ss\n");
+	t_list	*node;
+
+	node = ft_lstnew("ss");
+	ft_lstadd_back(operations, node);
 	swap(sa);
 	swap(sb);
 	sa->op.ss++;
 }
 
-void	rr(t_stack *sa, t_stack *sb)
+void	rr(t_stack *sa, t_stack *sb, t_list **operations)
 {
-	ft_printf(1, "rr\n");
+	t_list	*node;
+
+	node = ft_lstnew("rr");
+	ft_lstadd_back(operations, node);
 	rot(sa);
 	rot(sb);
 	sa->op.rot_both++;
 }
 
-void	rrr(t_stack *sa, t_stack *sb)
+void	rrr(t_stack *sa, t_stack *sb, t_list **operations)
 {
-	ft_printf(1, "rrr\n");
+	t_list	*node;
+
+	node = ft_lstnew("rrr");
+	ft_lstadd_back(operations, node);
 	revrot(sa);
 	revrot(sb);
 	sa->op.revrot_both++;

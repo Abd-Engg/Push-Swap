@@ -1,4 +1,3 @@
-
 NAME	= push_swap
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
@@ -22,6 +21,12 @@ SRCS	= main.c \
 		  imports/libft/ft_isalpha.c \
 		  imports/libft/ft_isdigit.c \
 		  imports/libft/ft_itoa.c \
+		  imports/libft/ft_lstadd_back.c \
+		  imports/libft/ft_lstadd_front.c \
+		  imports/libft/ft_lstclear.c \
+		  imports/libft/ft_lstdelone.c \
+		  imports/libft/ft_lstnew.c \
+		  imports/libft/ft_lstlast.c \
 		  imports/libft/ft_split.c \
 		  imports/libft/ft_strcmp.c \
 		  imports/libft/ft_strjoin.c \

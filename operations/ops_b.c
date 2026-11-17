@@ -10,33 +10,45 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header_files/ft_printf.h"
 #include "../header_files/pushswap.h"
+#include "../header_files/libft.h"
 
-void	sb(t_stack *sb)
+void	sb(t_stack *sb, t_list **operations)
 {
-	ft_printf(1, "sb\n");
+	t_list	*node;
+
+	node = ft_lstnew("sb");
+	ft_lstadd_back(operations, node);
 	swap(sb);
 	sb->op.s++;
 }
 
-void	pb(t_stack *sb, t_stack *sa)
+void	pb(t_stack *sb, t_stack *sa, t_list **operations)
 {
-	ft_printf(1, "pb\n");
+	t_list	*node;
+
+	node = ft_lstnew("pb");
+	ft_lstadd_back(operations, node);
 	push(sb, sa);
 	sb->op.p += 1;
 }
 
-void	rb(t_stack *sb)
+void	rb(t_stack *sb, t_list **operations)
 {
-	ft_printf(1, "rb\n");
+	t_list	*node;
+
+	node = ft_lstnew("rb");
+	ft_lstadd_back(operations, node);
 	rot(sb);
 	sb->op.rot++;
 }
 
-void	rrb(t_stack *sb)
+void	rrb(t_stack *sb, t_list **operations)
 {
-	ft_printf(1, "rrb\n");
+	t_list	*node;
+
+	node = ft_lstnew("rrb");
+	ft_lstadd_back(operations, node);
 	revrot(sb);
 	sb->op.revrot++;
 }
