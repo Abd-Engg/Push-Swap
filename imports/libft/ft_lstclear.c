@@ -19,7 +19,7 @@ void	ft_lstclear(t_list **lst)
 	while (*lst)
 	{
 		curr = (*lst)->next;
-		free(*lst);
+		ft_lstdelone(*lst);
 		*lst = curr;
 	}
 }

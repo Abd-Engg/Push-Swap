@@ -57,20 +57,23 @@ void	selector(t_parsing _input, t_stack *a, t_stack *b, t_list **head)
 		simple_sort(a, b, head);
 	if (flag)
 		_input.str = adaptive;
+	while (*head)
+	{
+		ft_printf(1, "%s\n", (char *)(*head)->content);
+		(*head) = (*head)->next;
+	}
 	if (_input.is_bench)
 		print_benchmark(a, b, dis, _input);
-	free_all(a, b, _input.data);
-	ft_lstclear(head);
 }
 
-void	push_swap(t_parsing _input)
+void	push_swap(t_parsing _input, t_list **lst)
 {
 	t_stack	*a;
 	t_stack	*b;
 	int		i;
-	t_list	*head;
+	t_list	*tmp;
 
-	head = NULL;
+	tmp = *lst;
 	i = _input.size - 1;
 	a = init_stack();
 	b = init_stack();
@@ -84,19 +87,18 @@ void	push_swap(t_parsing _input)
 		add_new_node(a, _input.data[i--]);
 	merge_sort(_input.data, 0, _input.size - 1);
 	binary_search(a, _input.data);
-	selector(_input, a, b, &head);
-	while (head)
-	{
-		ft_printf(1, "%s\n", (char *)head->content);
-		head = head->next;
-	}
+	selector(_input, a, b, &tmp);
+	free_all(a, b, _input.data);
 }
 
 int	main(int argc, char **argv)
 {
 	t_parsing	_input;
+	t_list		*head;
 
+	head = NULL;
 	_input = parsing_input(argv + 1, argc - 1);
-	push_swap(_input);
+	push_swap(_input, &head);
+	ft_lstclear(&head);
 	return (0);
 }
