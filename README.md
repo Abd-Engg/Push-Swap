@@ -200,8 +200,8 @@ Push-Swap
 ## Team contribution
 | Learner | Login | Contributions |
 |---------|-------|---------------|
-| abd | abmalkaw | parsing & error handling, simple + medium strategies, makefile |
-| nagham | nalrjoub | stack implementation & operations, disorder, complex strategy, README file |
+| abd_aljaaaaaaaaaaaak | abmalkaw | parsing & error handling, simple + medium strategies, makefile |
+| nagham_aljak. | nalrjoub | stack implementation & operations, disorder, complex strategy, README file |
 
 No part of the code was done without being reviewd by both learners. Both learners understand all of the code.
 
@@ -211,6 +211,8 @@ No part of the code was done without being reviewd by both learners. Both learne
 - [radix sort] https://www.geeksforgeeks.org/dsa/radix-sort/
 - [radix sort] https://brilliant.org/wiki/radix-sort/
 - [counting sort] https://brilliant.org/wiki/counting-sort/
+- [simple sort] https://www.geeksforgeeks.org/dsa/sorting-algorithms/
+- [medium sort] https://medium.com/jl-codes/understanding-sorting-algorithms-af6222995c8
 
 ## AI usage
 - AI was used to help write this README file

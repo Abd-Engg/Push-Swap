@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pushswap.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abmalkaw <abmalkaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/17 15:51:37 by abmalkaw          #+#    #+#             */
+/*   Updated: 2026/11/17 16:05:13 by abmalkaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
@@ -97,5 +109,6 @@ void		print_benchmark(t_stack *a, t_stack *b, float dis,
 char		**split_argv(char **s, int *size);
 void		free_s(char **s);
 int			check_error(t_parsing return_value);
+int			total_operations(t_stack *a, t_stack *b);
 
 #endif
