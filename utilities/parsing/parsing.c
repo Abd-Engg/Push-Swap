@@ -66,7 +66,7 @@ t_parsing	parsing_input(char **s, int size)
 	int			counter;
 	char		**splitted;
 
-	counter = 0;
+	counter = -1;
 	splitted = split_argv(s, &size);
 	return_value = init_r();
 	if (!splitted)
@@ -76,17 +76,15 @@ t_parsing	parsing_input(char **s, int size)
 		return_value.error = 1;
 		return (free_s(splitted), return_value);
 	}
-	while (counter < size && isflag(s[counter]))
+	while (++counter < size && isflag(s[counter]))
 	{
 		if (is_bench(s[counter]))
 			return_value.is_bench = 1;
 		else if (set_str(s[counter]) != NONE)
 			return_value.str = add_str(splitted, counter);
-		counter++;
 	}
 	return_value.size = size - counter;
 	return_value.data = add_data(splitted, counter, &return_value);
 	return_value.error |= isdup(return_value.data, return_value.size);
-	free_s(splitted);
-	return (return_value);
+	return (free_s(splitted), return_value);
 }
