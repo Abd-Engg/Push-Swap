@@ -29,6 +29,7 @@ static int	count_words(char const *s, char c)
 
 	i = 0;
 	count = 0;
+
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)
@@ -49,6 +50,7 @@ static void	split(char const *s, char c, char **arr)
 
 	i = 0;
 	k = 0;
+
 	while (s[i])
 	{
 		j = 0;
@@ -74,7 +76,8 @@ char	**ft_split(char const *s, char c)
 {
 	char	**splitted;
 	int		words;
-
+	if (!s)
+		return (NULL);
 	words = count_words(s, c);
 	splitted = malloc((words + 1) * sizeof(char *));
 	if (!splitted)

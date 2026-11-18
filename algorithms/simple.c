@@ -56,13 +56,15 @@ void	simple_sort(t_stack *stack_a, t_stack *stack_b, t_list **operations)
 	int	target;
 
 	target = 0;
-	while (stack_a->size)
+	while (stack_a->size > 2)
 	{
 		index = pos(stack_a, target);
 		rotate(stack_a, index, operations);
 		pb(stack_b, stack_a, operations);
 		target++;
 	}
+	if (stack_a->head->content > stack_a->head->prev->content)
+		sa(stack_a, operations);
 	while (stack_b->size)
 		pa(stack_a, stack_b, operations);
 }

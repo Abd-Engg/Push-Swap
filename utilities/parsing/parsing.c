@@ -40,6 +40,8 @@ char	**split_argv(char **s, int *size)
 		joined = ft_strjoin(joined, s[counter++]);
 	splitted = ft_split(joined, ' ');
 	free(joined);
+	if (!splitted)
+		return (NULL);
 	while (splitted[i])
 		i++;
 	*size = i;
@@ -51,6 +53,8 @@ void	free_s(char **s)
 	int	counter;
 
 	counter = 0;
+	if (!s)
+		return ;
 	while (s[counter])
 		free(s[counter++]);
 	free(s);
@@ -65,6 +69,8 @@ t_parsing	parsing_input(char **s, int size)
 	counter = 0;
 	splitted = split_argv(s, &size);
 	return_value = init_r();
+	if (!splitted)
+		return (return_value);
 	if (!check(splitted, size))
 	{
 		return_value.error = 1;
