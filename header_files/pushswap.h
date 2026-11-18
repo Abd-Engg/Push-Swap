@@ -66,5 +66,7 @@ char		**split_argv(char **s, int *size);
 void		free_s(char **s);
 int			check_error(t_parsing return_value);
 int			total_operations(t_stack *a, t_stack *b);
+void		free_stack(t_stack *s);
+void		free_all(t_stack *a, t_stack *b, int *arr);
 
 #endif

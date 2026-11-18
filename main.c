@@ -15,26 +15,13 @@
 #include "header_files/ft_printf.h"
 #include "header_files/libft.h"
 
-void	free_stack(t_stack *s)
+void	print_list(t_list *curr)
 {
-	t_node	*cur;
-	t_node	*tmp;
-
-	cur = s->head;
-	while (cur)
+	while (curr)
 	{
-		tmp = cur;
-		cur = cur->prev;
-		free(tmp);
+		ft_printf(1, "%s\n", curr->content);
+		curr = curr->next;
 	}
-	free(s);
-}
-
-void	free_all(t_stack *a, t_stack *b, int *arr)
-{
-	free_stack(a);
-	free_stack(b);
-	free(arr);
 }
 
 void	selector(t_parsing _input, t_stack *a, t_stack *b, t_list **head)
@@ -57,11 +44,7 @@ void	selector(t_parsing _input, t_stack *a, t_stack *b, t_list **head)
 		simple_sort(a, b, head);
 	if (flag)
 		_input.str = adaptive;
-	while (*head)
-	{
-		ft_printf(1, "%s\n", (char *)(*head)->content);
-		(*head) = (*head)->next;
-	}
+	print_list(*head);
 	if (_input.is_bench)
 		print_benchmark(a, b, dis, _input);
 }
@@ -71,9 +54,7 @@ void	push_swap(t_parsing _input, t_list **lst)
 	t_stack	*a;
 	t_stack	*b;
 	int		i;
-	t_list	*tmp;
 
-	tmp = *lst;
 	i = _input.size - 1;
 	a = init_stack();
 	b = init_stack();
@@ -87,7 +68,7 @@ void	push_swap(t_parsing _input, t_list **lst)
 		add_new_node(a, _input.data[i--]);
 	merge_sort(_input.data, 0, _input.size - 1);
 	binary_search(a, _input.data);
-	selector(_input, a, b, &tmp);
+	selector(_input, a, b, lst);
 	free_all(a, b, _input.data);
 }
 

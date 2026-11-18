@@ -14,6 +14,7 @@ SRCS	= main.c \
 		  utilities/print_benchmark.c \
 		  utilities/sort_args.c \
 		  utilities/stack.c \
+		  utilities/free.c \
 		  utilities/parsing/checking.c \
 		  utilities/parsing/parsing.c \
 		  utilities/parsing/Set_Data.c \
