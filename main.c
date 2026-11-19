@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abmalkaw <abmalkaw@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: nalrjoub <nalrjoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 15:52:10 by abmalkaw          #+#    #+#             */
-/*   Updated: 2026/11/17 15:52:14 by abmalkaw         ###   ########.fr       */
+/*   Updated: 2026/11/19 12:58:06 by nalrjoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header_files/definitions.h"
 #include "header_files/pushswap.h"
 #include "header_files/ft_printf.h"
 #include "header_files/libft.h"
