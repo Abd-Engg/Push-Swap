@@ -3,39 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abmalkaw <abmalkaw@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: nalrjoub <nalrjoub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 15:52:10 by abmalkaw          #+#    #+#             */
-/*   Updated: 2026/11/17 15:52:14 by abmalkaw         ###   ########.fr       */
+/*   Updated: 2026/11/19 12:58:06 by nalrjoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header_files/pushswap.h"
 #include "header_files/ft_printf.h"
+#include "header_files/libft.h"
 
-void	free_stack(t_stack *s)
+void	print_list(t_list *curr)
 {
-	t_node	*cur;
-	t_node	*tmp;
-
-	cur = s->head;
-	while (cur)
+	while (curr)
 	{
-		tmp = cur;
-		cur = cur->prev;
-		free(tmp);
+		ft_printf(1, "%s\n", curr->content);
+		curr = curr->next;
 	}
-	free(s);
 }
 
-void	free_all(t_stack *a, t_stack *b, int *arr)
-{
-	free_stack(a);
-	free_stack(b);
-	free(arr);
-}
-
-void	selector(t_parsing _input, t_stack *a, t_stack *b)
+void	selector(t_parsing _input, t_stack *a, t_stack *b, t_list **head)
 {
 	double	dis;
 	int		flag;
@@ -48,18 +36,19 @@ void	selector(t_parsing _input, t_stack *a, t_stack *b)
 		flag = 1;
 	}
 	if (_input.str == complex && dis)
-		complex_sort(a, b);
+		complex_sort(a, b, head);
 	else if (_input.str == medium && dis)
-		medium_sort(a, b);
+		medium_sort(a, b, head);
 	else if (_input.str == simple && dis)
-		simple_sort(a, b);
+		simple_sort(a, b, head);
 	if (flag)
 		_input.str = adaptive;
+	print_list(*head);
 	if (_input.is_bench)
 		print_benchmark(a, b, dis, _input);
 }
 
-void	push_swap(t_parsing _input)
+void	push_swap(t_parsing _input, t_list **lst)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -70,7 +59,7 @@ void	push_swap(t_parsing _input)
 	b = init_stack();
 	if (_input.error)
 	{
-		ft_printf(2, "ERROR\n");
+		ft_printf(2, "Error\n");
 		free_all(a, b, _input.data);
 		return ;
 	}
@@ -78,15 +67,18 @@ void	push_swap(t_parsing _input)
 		add_new_node(a, _input.data[i--]);
 	merge_sort(_input.data, 0, _input.size - 1);
 	binary_search(a, _input.data);
-	selector(_input, a, b);
+	selector(_input, a, b, lst);
 	free_all(a, b, _input.data);
 }
 
 int	main(int argc, char **argv)
 {
 	t_parsing	_input;
+	t_list		*head;
 
+	head = NULL;
 	_input = parsing_input(argv + 1, argc - 1);
-	push_swap(_input);
+	push_swap(_input, &head);
+	ft_lstclear(&head);
 	return (0);
 }

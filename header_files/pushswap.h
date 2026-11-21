@@ -12,55 +12,11 @@
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
-
 # include <stddef.h>
 # include <stdlib.h>
+# include "definitions.h"
 # define T_MAX 2147483647
 # define T_MIN -2147483648
-
-typedef enum e_strategy
-{
-	simple = 1,
-	medium = 2,
-	complex = 3,
-	adaptive = 4,
-	NONE = -1
-}	t_strategy;
-
-typedef struct s_parsing
-{
-	t_strategy	str;
-	int			*data;
-	int			size;
-	int			error;
-	int			is_bench;
-}	t_parsing;
-
-typedef struct s_node
-{
-	int				content;
-	struct s_node	*next;
-	struct s_node	*prev;
-}					t_node;
-
-typedef struct s_ops
-{
-	int	p;
-	int	s;
-	int	ss;
-	int	rot;
-	int	revrot;
-	int	rot_both;
-	int	revrot_both;
-}					t_ops;
-
-typedef struct s_stack
-{
-	t_node			*head;
-	t_node			*tail;
-	t_ops			op;
-	size_t			size;
-}					t_stack;
 
 void		del_node(t_stack *s);
 t_node		*add_new_node(t_stack *s, int content);
@@ -69,30 +25,30 @@ void		push(t_stack *s1, t_stack *s2);
 void		swap(t_stack *s1);
 void		rot(t_stack *s1);
 void		revrot(t_stack *s1);
-void		ra(t_stack *sa);
-void		pa(t_stack *sa, t_stack *sb);
-void		sa(t_stack *sa);
-void		sb(t_stack *sb);
-void		pb(t_stack *sb, t_stack *sa);
-void		rb(t_stack *sb);
-void		rra(t_stack *sa);
-void		rrb(t_stack *sb);
-void		ss(t_stack *sa, t_stack *sb);
-void		rr(t_stack *sa, t_stack *sb);
-void		rrr(t_stack *sa, t_stack *sb);
+void		ra(t_stack *sa, t_list **operations);
+void		pa(t_stack *sa, t_stack *sb, t_list **operations);
+void		sa(t_stack *sa, t_list **operations);
+void		sb(t_stack *sb, t_list **operations);
+void		pb(t_stack *sb, t_stack *sa, t_list **operations);
+void		rb(t_stack *sb, t_list **operations);
+void		rra(t_stack *sa, t_list **operations);
+void		rrb(t_stack *sb, t_list **operations);
+void		ss(t_stack *sa, t_stack *sb, t_list **operations);
+void		rr(t_stack *sa, t_stack *sb, t_list **operations);
+void		rrr(t_stack *sa, t_stack *sb, t_list **operations);
 void		sort(int *arr, int l, int mid, int r);
 int			*fill_arr(int *arr, int size, int idx);
 void		binary_search(t_stack *s, int *arr);
 void		merge_sort(int *arr, int l, int r);
-void		complex_sort(t_stack *stack_a, t_stack *stack_b);
+void		complex_sort(t_stack *stack_a, t_stack *stack_b,
+				t_list **operations);
 int			count(int n);
 double		disorder(t_stack *s, int size);
-void		simple_sort(t_stack *stack_a, t_stack *stack_b);
-void		rotate(t_stack *s, int index);
+void		simple_sort(t_stack *stack_a, t_stack *stack_b,
+				t_list **operations);
 int			pos(t_stack *s, int target);
-void		medium_sort(t_stack *stack_a, t_stack *stack_b);
-void		rotate_b(t_stack *s, int index);
-void		stage_a(t_stack *stack_a, t_stack *stack_b);
+void		medium_sort(t_stack *stack_a, t_stack *stack_b,
+				t_list **operations);
 t_parsing	parsing_input(char **s, int size);
 int			isdup(int *data, int size);
 int			*add_data(char **s, int start, t_parsing *return_value);
@@ -110,5 +66,7 @@ char		**split_argv(char **s, int *size);
 void		free_s(char **s);
 int			check_error(t_parsing return_value);
 int			total_operations(t_stack *a, t_stack *b);
+void		free_stack(t_stack *s);
+void		free_all(t_stack *a, t_stack *b, int *arr);
 
 #endif

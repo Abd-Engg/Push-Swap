@@ -24,7 +24,7 @@ int	count(int n)
 	return (i);
 }
 
-void	complex_sort(t_stack *stack_a, t_stack *stack_b)
+void	complex_sort(t_stack *stack_a, t_stack *stack_b, t_list **operations)
 {
 	int	iterations;
 	int	i;
@@ -43,12 +43,12 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 		{
 			curr = stack_a->head->content;
 			if (!((curr >> i) & 1))
-				pb(stack_b, stack_a);
+				pb(stack_b, stack_a, operations);
 			else
-				ra(stack_a);
+				ra(stack_a, operations);
 		}
 		while (stack_b->head)
-			pa(stack_a, stack_b);
+			pa(stack_a, stack_b, operations);
 		i++;
 	}
 }

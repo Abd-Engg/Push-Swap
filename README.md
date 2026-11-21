@@ -143,58 +143,59 @@ for i = 0 to bits-1:
 ## Project Structure
 ```
 Push-Swap
-│   main.c
-│   Makefile
-│   README.md
-│   
-├───algorithms
-│       complex.c
-│       medium.c
-│       simple.c
-│       
-├───header_files
-│       ft_printf.h
-│       libft.h
-│       pushswap.h
-│       
-├───imports
-│   ├───libft
-│   │       ft_atoi.c
-│   │       ft_isalpha.c
-│   │       ft_isdigit.c
-│   │       ft_itoa.c
-│   │       ft_split.c
-│   │       ft_strcmp.c
-│   │       ft_strjoin.c
-│   │       ft_strlcpy.c
-│   │       ft_strlen.c
-│   │       
-│   └───printf
-│           ft_printf.c
-│           ft_putchar.c
-│           ft_putfloat.c
-│           ft_puthexa.c
-│           ft_putnbr.c
-│           ft_putptr.c
-│           ft_putstr.c
-│           ft_putunsigned.c
-│           
-├───operations
-│       ops_a.c
-│       ops_b.c
-│       ops_both.c
-│       stack_ops.c
-│       
-└───utilities
-    │   disorder.c
-    │   print_benchmark.c
-    │   sort_args.c
-    │   stack.c
-    │   
-    └───parsing
-            checking.c
-            parsing.c
-            Set_Data.c
+├── algorithms
+│   ├── complex.c
+│   ├── medium.c
+│   └── simple.c
+├── header_files
+│   ├── definitions.h
+│   ├── ft_printf.h
+│   ├── libft.h
+│   └── pushswap.h
+├── imports
+│   ├── libft
+│   │   ├── ft_atoi.c
+│   │   ├── ft_isalpha.c
+│   │   ├── ft_isdigit.c
+│   │   ├── ft_itoa.c
+│   │   ├── ft_lstadd_back.c
+│   │   ├── ft_lstadd_front.c
+│   │   ├── ft_lstclear.c
+│   │   ├── ft_lstdelone.c
+│   │   ├── ft_lstlast.c
+│   │   ├── ft_lstnew.c
+│   │   ├── ft_split.c
+│   │   ├── ft_strcmp.c
+│   │   ├── ft_strjoin.c
+│   │   ├── ft_strlcpy.c
+│   │   └── ft_strlen.c
+│   └── printf
+│       ├── ft_printf.c
+│       ├── ft_putchar.c
+│       ├── ft_putfloat.c
+│       ├── ft_puthexa.c
+│       ├── ft_putnbr.c
+│       ├── ft_putptr.c
+│       ├── ft_putstr.c
+│       └── ft_putunsigned.c
+├── main.c
+├── Makefile
+├── operations
+│   ├── ops_a.c
+│   ├── ops_b.c
+│   ├── ops_both.c
+│   └── stack_ops.c
+├── README.md
+└── utilities
+    ├── disorder.c
+    ├── free.c
+    ├── parsing
+    │   ├── checking.c
+    │   ├── parsing.c
+    │   └── Set_Data.c
+    ├── print_benchmark.c
+    ├── sort_args.c
+    └── stack.c
 ```
 
 ## Team contribution

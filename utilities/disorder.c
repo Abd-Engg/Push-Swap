@@ -24,6 +24,8 @@ double	disorder(t_stack *s, int size)
 	c = s->head;
 	curr = s->head;
 	total_pairs = ((size - 1) * (size)) / 2.0;
+	if (!total_pairs)
+		return (0);
 	mistakes = 0;
 	while (c)
 	{
